@@ -1,5 +1,6 @@
 package com.example.ReceiptProcessor.controller;
 
+import com.example.ReceiptProcessor.exception.BadRequestException;
 import com.example.ReceiptProcessor.model.Receipt;
 import com.example.ReceiptProcessor.service.ReceiptService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,9 @@ public class ReceiptController {
 
     @PostMapping("/process")
     public ResponseEntity<Map<String, String>> processReceipt(@RequestBody Receipt receipt) {
+        if (receipt.getRetailer() == null || receipt.getTotal() == null) {
+            throw new BadRequestException("Missing required fields: retailer or total.");
+        }
         String id = receiptService.processReceipt(receipt);
         Map<String, String> response = new HashMap<>();
         response.put("id", id);
