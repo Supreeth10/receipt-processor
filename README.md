@@ -20,6 +20,7 @@ This project provides an API for processing receipts and calculating points base
 2.  **Change directory:**
 
     ```bash
+    cd receipt-processor
     cd ReceiptProcessor
     ```
 
