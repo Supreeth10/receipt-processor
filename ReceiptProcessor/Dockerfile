@@ -1,18 +1,3 @@
-## Use OpenJDK 21 as the base image
-#FROM eclipse-temurin:21-jdk as build
-#
-## Set the working directory inside the container
-#WORKDIR /app
-#
-## Copy the JAR file from the target directory
-#COPY target/ReceiptProcessor.jar ReceiptProcessor.jar
-#
-## Expose port 8080
-#EXPOSE 8080
-#
-## Run the Spring Boot application
-#ENTRYPOINT ["java", "-jar", "ReceiptProcessor.jar"]
-
 # Use OpenJDK 21 as the base image for building the application
 FROM eclipse-temurin:21-jdk as build
 
